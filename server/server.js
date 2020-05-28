@@ -16,7 +16,6 @@ app.get('/getData', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  console.log('a');
   res.sendFile(path.join(publicPath, 'dist', 'index.html'));
 });
 
