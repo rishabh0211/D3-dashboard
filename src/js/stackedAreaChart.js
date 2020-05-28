@@ -70,8 +70,6 @@ StackedAreaChart.prototype.wrangleData = function (data) {
     .key((d) => formatTime(d.date))
     .entries(data);
 
-  // console.log(vis.dayNest);
-
   vis.dataFiltered = vis.dayNest
     .map(function (day) {
       return day.values.reduce(function (accumulator, current) {
@@ -91,7 +89,6 @@ StackedAreaChart.prototype.wrangleData = function (data) {
 
 StackedAreaChart.prototype.updateVis = function () {
   var vis = this;
-  // console.log(vis.dataFiltered);
 
   vis.maxDateVal = d3.max(vis.dataFiltered, function (d) {
     var vals = d3.keys(d).map(function (key) {
@@ -112,8 +109,6 @@ StackedAreaChart.prototype.updateVis = function () {
 
   vis.teams = vis.g.selectAll(".team")
     .data(vis.stack(vis.dataFiltered));
-
-  // console.log(vis.stack(vis.dataFiltered));
 
   // Update the path for each team
   vis.teams.select(".area")

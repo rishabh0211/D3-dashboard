@@ -150,7 +150,6 @@ BarChart.prototype.updateVis = function () {
     })
     .attr("width", vis.x.bandwidth)
     .attr("fill", (d) => {
-      console.log(d);
       return vis.color(d.category);
     });
 };

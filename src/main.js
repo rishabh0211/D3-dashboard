@@ -19,7 +19,6 @@ var stackedArea, timeline, allCalls, calls, nestedCalls, revenueBar,
 	donut;
 
 fetch('/getData').then(res => res.json()).then(data => {
-	console.log(data);
 	data.map((d) => {
 		d.call_duration = +d.call_duration;
 		d.call_revenue = +d.call_revenue;
@@ -65,8 +64,6 @@ export const changeDates = function (values) {
 			return d.category;
 		})
 		.entries(calls);
-
-	console.log(nestedCalls);
 
 	$("#dateLabel1").text(formatTime(values[0]));
 	$("#dateLabel2").text(formatTime(values[1]));
